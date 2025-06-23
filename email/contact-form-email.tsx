@@ -24,17 +24,34 @@ export default function ContactFormEmail({
   return (
     <Html>
       <Head />
-      <Preview>New message from your portfolio site</Preview>
+      <Preview>📬 New message from your portfolio site</Preview>
       <Tailwind>
-        <Body className="bg-gray-100 text-black">
-          <Container>
-            <Section className="bg-white borderBlack my-10 px-10 py-4 rounded-md">
-              <Heading className="leading-tight">
-                You received the following message from the portfolio site.
+        <Body className="bg-gray-100 font-sans text-black">
+          <Container className="my-10 mx-auto max-w-lg">
+            <Section className="bg-white border border-gray-300 shadow-sm px-8 py-6 rounded-md">
+              <Heading className="text-xl font-semibold mb-4 text-gray-800">
+                📩 New Message Received
               </Heading>
-              <Text>{message}</Text>
-              <Hr />
-              <Text>The sender's email is: {senderEmail}</Text>
+
+              <Text className="text-gray-600 text-sm mb-2">
+                Someone contacted you via your portfolio site. Here's the message:
+              </Text>
+
+              <Section className="bg-gray-50 p-4 rounded-md border border-gray-200 mb-4">
+                <Text className="text-base text-gray-800 whitespace-pre-line">
+                  {message}
+                </Text>
+              </Section>
+
+              <Text className="text-sm text-gray-500">
+                <strong>Sender Email:</strong> {senderEmail}
+              </Text>
+
+              <Hr className="my-6" />
+
+              <Text className="text-xs text-gray-400 text-center">
+                This email was generated automatically by your portfolio site.
+              </Text>
             </Section>
           </Container>
         </Body>
