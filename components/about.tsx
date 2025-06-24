@@ -2,8 +2,11 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
-
-const SectionHeading = ({ children }) => (
+import { ReactNode } from 'react';
+interface SectionHeadingProps {
+  children: ReactNode;
+}
+const SectionHeading = ({ children }: SectionHeadingProps) => (
   <motion.h2
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}

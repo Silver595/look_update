@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 
-export default function ThemeSwitch() {
+export default function ThemeSwitch(): JSX.Element {
     return (
         <div>
             <AudioButton />
@@ -10,17 +10,17 @@ export default function ThemeSwitch() {
     );
 }
 
-function AudioButton() {
-    const [isPlaying, setIsPlaying] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
-    const [audioProgress, setAudioProgress] = useState(0);
-    const [volume, setVolume] = useState(0.7);
-    const [isHovered, setIsHovered] = useState(false);
-    const [audioLevel, setAudioLevel] = useState(0);
-    const [showVolumeControl, setShowVolumeControl] = useState(false);
-    const audioRef = useRef(null);
+function AudioButton(): JSX.Element {
+    const [isPlaying, setIsPlaying] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [audioProgress, setAudioProgress] = useState<number>(0);
+    const [volume, setVolume] = useState<number>(0.7);
+    const [isHovered, setIsHovered] = useState<boolean>(false);
+    const [audioLevel, setAudioLevel] = useState<number>(0);
+    const [showVolumeControl, setShowVolumeControl] = useState<boolean>(false);
+    const audioRef = useRef<HTMLAudioElement>(null);
 
-    const handleAudioToggle = async () => {
+    const handleAudioToggle = async (): Promise<void> => {
         if (audioRef.current) {
             setIsLoading(true);
             try {
@@ -40,7 +40,7 @@ function AudioButton() {
     useEffect(() => {
         const audio = audioRef.current;
         if (audio) {
-            const updateProgress = () => {
+            const updateProgress = (): void => {
                 const progress = (audio.currentTime / audio.duration) * 100;
                 setAudioProgress(progress || 0);
                 if (isPlaying) {
@@ -50,7 +50,7 @@ function AudioButton() {
                 }
             };
 
-            const handleEnded = () => {
+            const handleEnded = (): void => {
                 setIsPlaying(false);
                 setAudioProgress(0);
                 setAudioLevel(0);
@@ -66,7 +66,7 @@ function AudioButton() {
         }
     }, [isPlaying]);
 
-    const handleVolumeChange = (e) => {
+    const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const newVolume = parseFloat(e.target.value);
         setVolume(newVolume);
         if (audioRef.current) {
