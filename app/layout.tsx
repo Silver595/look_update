@@ -11,8 +11,8 @@ import { Toaster } from "react-hot-toast";
  const playfair = Playfair_Display({ subsets: ["latin"], weight: ['400', '700'] });
  const cinzel = Cinzel({ subsets: ["latin"], weight: ['400', '700'] });
 
-export const metadata = {
-    title: "The Silver Touch",
+const metadata = {
+    title: "SILVER595",
     description: "I'm just a learner trying to learn new things",
 };
 
