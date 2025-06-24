@@ -1,15 +1,13 @@
 'use client'
 import Header from "@/components/header";
 import "./globals.css";
-import { Inter, Playfair_Display, Cinzel} from 'next/font/google'
+import {  Playfair_Display, Cinzel} from 'next/font/google'
 import ActiveSectionContextProvider from "@/context/active-section-context";
 import Footer from "@/components/footer";
-import ThemeSwitch from "@/components/theme-switch";
-import ThemeContextProvider from "@/context/theme-context";
+import MusicSwitch from "@/components/music-switch";
 import { Toaster } from "react-hot-toast";
 
 
-const inter = Inter({ subsets: ["latin"], weight: ['100', '200', '300', '400', '500'] });
  const playfair = Playfair_Display({ subsets: ["latin"], weight: ['400', '700'] });
  const cinzel = Cinzel({ subsets: ["latin"], weight: ['400', '700'] });
 
@@ -341,7 +339,7 @@ export default function RootLayout({
                 {/* Main Content Container */}
                 <div className="relative flex flex-col min-h-screen">
 
-                    <ThemeContextProvider>
+                 
                         <ActiveSectionContextProvider>
 
                             {/* Header with Premium Glass Effect */}
@@ -388,12 +386,11 @@ export default function RootLayout({
                             <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50 stagger-4">
                                 <div className="glass-premium p-3 sm:p-6 hover:bg-black/10 transition-all duration-500 group">
                                     <div className="shimmer-luxury opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                    <ThemeSwitch />
+                                    <MusicSwitch />
                                 </div>
                             </div>
 
                         </ActiveSectionContextProvider>
-                    </ThemeContextProvider>
 
                     {/* Premium Bottom Accent Line */}
                     <div className="fixed bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-600/5 to-transparent pointer-events-none stagger-4"></div>

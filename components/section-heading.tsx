@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, useInView } from "framer-motion";
 
-// Custom styles for radial gradients
+
 const radialGradientStyle = {
   background: 'radial-gradient(ellipse at center, var(--tw-gradient-stops))'
 };
@@ -12,10 +12,10 @@ type SectionHeadingProps = {
   delay?: number;
 };
 
-export default function SectionHeading({ 
-  children, 
+export default function SectionHeading({
+  children,
   variant = 'default',
-  delay = 0 
+  delay = 0
 }: SectionHeadingProps) {
   const [isHovered, setIsHovered] = useState(false);
   const ref = React.useRef(null);
@@ -38,8 +38,8 @@ export default function SectionHeading({
   };
 
   const wordVariants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       y: 50,
       rotateX: -90,
       scale: 0.8
@@ -60,7 +60,7 @@ export default function SectionHeading({
   };
 
   const charVariants = {
-    hidden: { 
+    hidden: {
       opacity: 0,
       y: 20,
       scale: 0
@@ -88,11 +88,10 @@ export default function SectionHeading({
         onMouseLeave={() => setIsHovered(false)}
       >
         <motion.h2
-          className={`text-3xl font-medium capitalize relative cursor-pointer transition-all duration-500 ${
-            isHovered ? 'text-white' : 'text-gray-200'
-          }`}
+          className={`text-3xl font-medium capitalize relative cursor-pointer transition-all duration-500 ${isHovered ? 'text-white' : 'text-gray-200'
+            }`}
           animate={{
-            textShadow: isHovered 
+            textShadow: isHovered
               ? '0 0 30px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.6), 0 0 90px rgba(200, 200, 200, 0.4)'
               : '0 0 10px rgba(255, 255, 255, 0.2)',
             scale: isHovered ? 1.05 : 1
@@ -111,7 +110,7 @@ export default function SectionHeading({
             }}
             transition={{ duration: 0.4 }}
           />
-          
+
           {/* Inner radial glow layer */}
           <motion.div
             className="absolute -inset-3 rounded-full blur-lg"
@@ -147,7 +146,7 @@ export default function SectionHeading({
               style={{
                 filter: 'drop-shadow(0 0 8px rgba(255, 255, 255, 0.3))'
               }}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.1,
                 rotate: [0, -2, 2, 0],
                 transition: { duration: 0.3 },
@@ -227,7 +226,7 @@ export default function SectionHeading({
             transition={{ duration: 0.3 }}
             style={{ originX: 0 }}
           />
-          
+
           {/* Floating platinum particles */}
           {isHovered && (
             <>
@@ -238,7 +237,7 @@ export default function SectionHeading({
                   style={{
                     filter: 'drop-shadow(0 0 4px rgba(255, 255, 255, 0.8))'
                   }}
-                  initial={{ 
+                  initial={{
                     x: Math.random() * 200 - 100,
                     y: Math.random() * 60 - 30,
                     opacity: 0,
@@ -264,7 +263,6 @@ export default function SectionHeading({
     );
   }
 
-  // Default variant with enhanced platinum/silver effects for black background
   return (
     <motion.div
       ref={ref}
@@ -278,20 +276,20 @@ export default function SectionHeading({
           textShadow: '0 0 10px rgba(255, 255, 255, 0.2)'
         }}
         initial={{ opacity: 0, y: 50, rotateX: -15 }}
-        animate={isInView ? { 
-          opacity: 1, 
-          y: 0, 
-          rotateX: 0 
+        animate={isInView ? {
+          opacity: 1,
+          y: 0,
+          rotateX: 0
         } : {}}
-        transition={{ 
-          duration: 1, 
-          delay, 
+        transition={{
+          duration: 1,
+          delay,
           ease: [0.16, 1, 0.3, 1],
           type: "spring",
           damping: 20,
           stiffness: 100
         }}
-        whileHover={{ 
+        whileHover={{
           scale: 1.02,
           y: -2,
           textShadow: '0 0 20px rgba(255, 255, 255, 0.6), 0 0 40px rgba(255, 255, 255, 0.4)',
@@ -300,55 +298,54 @@ export default function SectionHeading({
         }}
       >
         {children}
-        
-        {/* Animated platinum underline */}
+
+
         <motion.div
           className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-white to-transparent origin-center shadow-lg shadow-white/50"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: isHovered ? 1 : 0 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
         />
-        
-        {/* Secondary glow underline */}
+
         <motion.div
           className="absolute bottom-0 left-0 right-0 h-1 bg-white/20 blur-sm origin-center"
           initial={{ scaleX: 0, opacity: 0 }}
-          animate={{ 
+          animate={{
             scaleX: isHovered ? 1 : 0,
             opacity: isHovered ? 1 : 0
           }}
           transition={{ duration: 0.4, ease: "easeOut" }}
         />
-        
-        {/* Center-focused gradient glow - fades from center outward */}
+
+
         <motion.div
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-16 rounded-full blur-xl -z-10"
           style={{
             background: 'radial-gradient(ellipse at center, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.08) 40%, transparent 70%)'
           }}
           initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ 
-            opacity: isHovered ? 1 : 0, 
-            scale: isHovered ? 1.2 : 0.5 
+          animate={{
+            opacity: isHovered ? 1 : 0,
+            scale: isHovered ? 1.2 : 0.5
           }}
           transition={{ duration: 0.4, ease: "easeOut" }}
         />
-        
-        {/* Secondary radial glow layer */}
+
+
         <motion.div
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-12 rounded-full blur-lg -z-10"
           style={{
             background: 'radial-gradient(ellipse at center, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 50%, transparent 80%)'
           }}
           initial={{ opacity: 0, scale: 0.3 }}
-          animate={{ 
-            opacity: isHovered ? 0.8 : 0, 
-            scale: isHovered ? 1 : 0.3 
+          animate={{
+            opacity: isHovered ? 0.8 : 0,
+            scale: isHovered ? 1 : 0.3
           }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         />
-        
-        {/* Ambient pulsing light - very subtle */}
+
+
         <motion.div
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-20 rounded-full blur-2xl -z-20"
           style={{

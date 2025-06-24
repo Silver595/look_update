@@ -49,7 +49,7 @@ export default function Skills() {
         <SectionHeading>My skills</SectionHeading>
       </div>
       
-      {/* Skills Container */}
+     
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -82,25 +82,23 @@ export default function Skills() {
           >
             <div className="relative px-4 py-2.5 sm:px-5 sm:py-3 bg-black/95 backdrop-blur-sm border border-white/20 rounded-lg shadow-lg hover:shadow-2xl hover:shadow-white/10 transition-all duration-500 ease-out overflow-hidden min-w-[80px] hover:border-white/40">
               
-              {/* Animated background glow */}
+     
               <div className="absolute inset-0 bg-gradient-to-r from-white/5 via-white/10 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
-              
-              {/* Shimmer effect */}
+       
               <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-1000 ease-out skew-x-12"></div>
               
-              {/* Skill text */}
+      
               <span className="relative z-10 text-sm font-medium text-white/90 tracking-wide whitespace-nowrap group-hover:text-white transition-colors duration-300">
                 {skill}
               </span>
-              
-              {/* Subtle pulse animation */}
+    
               <div className="absolute inset-0 border border-white/10 scale-100 group-hover:scale-110 opacity-100 group-hover:opacity-0 transition-all duration-500"></div>
             </div>
           </motion.div>
         ))}
       </motion.div>
       
-      {/* Floating animation elements */}
+ 
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {[...Array(3)].map((_, i) => (
           <motion.div
@@ -125,7 +123,7 @@ export default function Skills() {
         ))}
       </div>
       
-      {/* Bottom accent */}
+
       <motion.div 
         className="mt-16 flex justify-center"
         initial={{ scaleX: 0, opacity: 0 }}

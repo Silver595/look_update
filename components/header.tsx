@@ -14,18 +14,7 @@ export default function Header() {
     <header className="z-[999] relative">
       {/* Main glass container with premium black effects */}
       <motion.div
-        className="fixed top-0 left-1/2 h-[4.5rem] w-full rounded-full border border-white/10 bg-gradient-to-r from-black/95 via-gray-900/90 to-black/95 shadow-2xl shadow-black/60 backdrop-blur-[1rem] sm:top-6 sm:h-[3.25rem] sm:w-[36rem] sm:rounded-full
-        before:absolute before:inset-0 before:rounded-none before:sm:rounded-full before:bg-gradient-to-b before:from-white/8 before:to-transparent before:pointer-events-none
-        after:absolute after:inset-[1px] after:rounded-none after:sm:rounded-full after:bg-gradient-to-b after:from-transparent after:to-white/3 after:pointer-events-none
-        relative overflow-hidden"
-        initial={{ y: -100, x: "-50%", opacity: 0, scale: 0.8 }}
-        animate={{ y: 0, x: "-50%", opacity: 1, scale: 1.1 }}
-        transition={{
-          type: "spring",
-          stiffness: 200,
-          damping: 20,
-          duration: 0.8
-        }}
+    
       >
         {/* Animated glass shine effect */}
         <motion.div
