@@ -6,6 +6,7 @@ import { BsLinkedin } from "react-icons/bs";
 import { FaGithubSquare } from "react-icons/fa";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
+import ProfileCard from "@/context/ProfileCard";
 
 const videos: string[] = ["/hero-1.mp4", "/hero-2.mp4", "/hero-3.mp4", "/hero-4.mp4"];
 
@@ -356,6 +357,41 @@ const Intro: React.FC = () => {
             opacity: 0.4;
           }
         }
+
+        /* Profile Card Container */
+        .profile-card-container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          min-height: 600px;
+        }
+
+        /* Ensure grid items have equal height */
+        .equal-height-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          align-items: stretch;
+          min-height: 80vh;
+        }
+
+        @media (max-width: 1024px) {
+          .equal-height-grid {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            min-height: auto;
+          }
+          
+          .profile-card-container {
+            min-height: 500px;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .profile-card-container {
+            min-height: 400px;
+          }
+        }
       `}</style>
 
       <section
@@ -373,18 +409,18 @@ const Intro: React.FC = () => {
         <div className="absolute bottom-1/3 left-1/3 w-px h-24 line-element floating-element" style={{animationDelay: '-4s'}}></div>
         <div className="absolute top-1/2 right-1/6 w-12 h-px line-element floating-element" style={{animationDelay: '-6s'}}></div>
 
-        {/* Main Content Grid */}
-        <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        {/* Main Content Grid with Equal Heights */}
+        <div className="max-w-7xl w-full equal-height-grid gap-16 lg:gap-24">
           
           {/* Enhanced Text Content */}
           <motion.div
-            className="space-y-12 lg:pr-12 relative"
+            className="space-y-12 lg:pr-12 relative flex flex-col justify-center"
             initial={{ opacity: 0, x: -60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           >
             {/* Main Heading */}
-            <div className="space-y-10">
+            <div className="space-y-12">
               <motion.div
                 className="space-y-4"
                 initial={{ opacity: 0, y: 30 }}
@@ -514,65 +550,30 @@ const Intro: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          {/* Video Section - Unchanged */}
+          {/* Profile Card Section */}
           <motion.div
-            className="flex flex-col items-center space-y-8"
+            className="profile-card-container relative"
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
           >
-            {/* Video Container */}
-            <div className="relative">
-              {/* Video Frame */}
-              <div className="video-frame rounded-3xl p-2">
-                <AnimatePresence mode="wait">
-                  <motion.video
-                    key={currentVideo}
-                    ref={videoRef}
-                    className="w-[350px] h-[350px] sm:w-[450px] sm:h-[450px] lg:w-[500px] lg:h-[500px] rounded-2xl object-cover video-hover cursor-pointer"
-                    autoPlay
-                    loop
-                    muted
-                    onMouseEnter={handlePlayAudio}
-                    onMouseLeave={handlePauseAudio}
-                    onClick={handleVideoClick}
-                    initial={{ opacity: 0, scale: 0.96 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.96 }}
-                    transition={{
-                      duration: 0.8,
-                      ease: [0.16, 1, 0.3, 1],
-                    }}
-                  >
-                    <source src={videos[currentVideo]} type="video/mp4" />
-                  </motion.video>
-                </AnimatePresence>
-              </div>
-
-              {/* Corner Accents */}
-              <div className="absolute -top-1 -left-1 w-6 h-6 border-l border-t border-white/10"></div>
-              <div className="absolute -top-1 -right-1 w-6 h-6 border-r border-t border-white/10"></div>
-              <div className="absolute -bottom-1 -left-1 w-6 h-6 border-l border-b border-white/10"></div>
-              <div className="absolute -bottom-1 -right-1 w-6 h-6 border-r border-b border-white/10"></div>
-            </div>
-
-            {/* Video Navigation */}
-            <div className="flex items-center gap-3">
-              {videos.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentVideo(index)}
-                  className={`w-2 h-2 rounded-full dots-indicator ${
-                    index === currentVideo ? 'active' : ''
-                  }`}
-                />
-              ))}
-            </div>
-
-            {/* Video Counter */}
-            <div className="text-xs text-white/30 font-light tracking-wider">
-              {String(currentVideo + 1).padStart(2, '0')} / {String(videos.length).padStart(2, '0')}
-            </div>
+            <ProfileCard
+              // name="Akash Purjalkar"
+              // title="Full-Stack Developer"
+              // handle="Silver595"
+              // status="Available for work"
+              // contactText="Contact Me"
+              avatarUrl="/profile-img3.png"
+              iconUrl="/profile-img.png"
+              grainUrl="/profile-img.png"
+              showUserInfo={true}
+              enableTilt={true}
+              onContactClick={() => {
+                console.log('Contact clicked');
+                // Add your contact logic here
+                window.open('mailto:akashpurjalkar66@gmail.com', '_blank');
+              }}
+            />
           </motion.div>
         </div>
 
