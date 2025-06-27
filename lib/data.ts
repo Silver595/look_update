@@ -1,7 +1,6 @@
 import React from "react";
-import {CgGames, CgWorkAlt} from "react-icons/cg";
-import {FaBible, FaChurch, FaCoins, FaCompass, FaReact, FaSketch} from "react-icons/fa";
-import {LuGamepad2, LuGraduationCap} from "react-icons/lu";
+import { FaChrome, FaVideo, FaStore, FaLandmark } from "react-icons/fa";
+import { LuGamepad2 } from "react-icons/lu";
 import corpcommentImg from "@/public/corpcomment.png";
 import rmtdevImg from "@/public/Editor.png";
 import wordanalyticsImg from "@/public/portscanner.png";
@@ -36,12 +35,30 @@ export const links = [
 export const experiencesData = [
   {
     title: "College MiniProject",
-    location: "solapur, IN",
+    location: "Solapur, IN",
     description:
-      "I made a Ecommerce Website.",
-    icon: React.createElement(LuGraduationCap),
+      "Developed an eCommerce website for a local business mall as part of my college work, featuring product listings, cart functionality, and a responsive design.",
+    icon: React.createElement(FaStore),
     date: "2024",
   },
+
+  {
+    title: "Video Calling Platform",
+    location: "Solapur, IN",
+    description:
+      "Developed a real-time video calling website for college use, enabling staff and students to communicate through peer-to-peer video sessions using WebRTC and Socket.IO.",
+    icon: React.createElement(FaVideo),
+    date: "2024",
+  },
+  {
+    title: "Time Travel for Web - Chrome Extension",
+    location: "Remote",
+    description:
+      "Built a Chrome extension that compares live web pages with archived versions from the Wayback Machine using a split-screen interface. Includes features like update notifications, timeline view, text search across versions, and link safety checks.",
+    icon: React.createElement(FaChrome), // You can import FaChrome from react-icons/fa
+    date: "2025",
+  },
+
   {
     title: "A Gamer",
     location: "",
@@ -55,30 +72,30 @@ export const experiencesData = [
     location: "",
     description:
       "Passionate about history, exploring different eras and understanding their impact on the present.",
-    icon: React.createElement(FaCompass),
+    icon: React.createElement(FaLandmark),
     date: `2021 - ${new Date(new Date()).toLocaleDateString("en-US")}`,
   },
 ] as const;
 
 export const projectsData = [
   {
-    title: "BlogSite",
+    title: "Keylogger",
     description:
-    "I built a simple blog site using React, MongoDB, and Tailwind. The platform allows users to create, read, and comment on blog posts, providing a seamless and user-friendly experience.",
-    tags: ["React", "MongoDB", "Tailwind"],
+      "Built a keylogger for educational and cybersecurity research, demonstrating how keystroke data can be captured and analyzed to highlight potential security threats.",
+    tags: ["Python", "Security", "OSINT"],
     imageUrl: corpcommentImg,
   },
   {
     title: "Code Editor",
     description:
-    "Working on Developing a custom code editor inspired by VS Code, with features like syntax highlighting, auto-completion, and file navigation.",
+      "Working on Developing a custom code editor inspired by VS Code, with features like syntax highlighting, auto-completion, and file navigation.",
     tags: ["prisma", "TypeScript", "Next.js", "Tailwind", "Redux"],
     imageUrl: rmtdevImg,
   },
   {
     title: "Port Scanner",
-    description: "A fast and efficient tool to scan IP addresses and identify open ports, helping users assess network security and potential vulnerabilities." ,
-    tags: [ "Python"],
+    description: "A fast and efficient tool to scan IP addresses and identify open ports, helping users assess network security and potential vulnerabilities.",
+    tags: ["Python"],
     imageUrl: wordanalyticsImg,
   },
 ] as const;
