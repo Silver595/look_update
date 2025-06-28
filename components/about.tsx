@@ -1,11 +1,13 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
 import { ReactNode } from 'react';
+
 interface SectionHeadingProps {
   children: ReactNode;
 }
+
 const SectionHeading = ({ children }: SectionHeadingProps) => (
   <motion.h2
     initial={{ opacity: 0, y: 20 }}
@@ -18,7 +20,6 @@ const SectionHeading = ({ children }: SectionHeadingProps) => (
 );
 
 export default function About() {
-  const [activeVideo, setActiveVideo] = useState(1);
   const { ref } = useSectionInView("About");
 
   const containerVariants = {
@@ -170,14 +171,16 @@ export default function About() {
               {/* Description Paragraphs */}
               <motion.div variants={itemVariants} className="space-y-8 max-w-xl">
                 <p className="text-white/80 text-lg font-light leading-relaxed tracking-wide">
-                  Currently pursuing a degree in Information Technology, with a passion for understanding how websites, systems, and modern technologies come together to create impactful digital products.                </p>
+                  Currently pursuing a degree in Information Technology, with a passion for understanding how websites, systems, and modern technologies come together to create impactful digital products.
+                </p>
 
                 <p className="text-white/70 text-lg font-light leading-relaxed tracking-wide">
                   Completed a full-stack web development bootcamp, gaining hands-on experience in building responsive applications. Also actively exploring the worlds of networking and cybersecurity to strengthen core technical skills.
                 </p>
 
                 <p className="text-white/60 text-lg font-light leading-relaxed tracking-wide">
-                  Beyond tech, a deep interest in history fuels curiosity — from ancient civilizations to world-changing events, discovering timeless stories that offer lessons in leadership, resilience, and innovation.                </p>
+                  Beyond tech, a deep interest in history fuels curiosity — from ancient civilizations to world-changing events, discovering timeless stories that offer lessons in leadership, resilience, and innovation.
+                </p>
               </motion.div>
 
               {/* Enhanced Skills Tags with Animated Borders */}
@@ -216,19 +219,19 @@ export default function About() {
               </motion.div>
             </div>
 
-            {/* Right Side - Enhanced Video with 3D Glass Effect */}
+            {/* Right Side - Enhanced Animated Timeline with 3D Glass Effect */}
             <div className="col-span-12 lg:col-span-5">
               <motion.div
                 variants={itemVariants}
                 className="relative group"
               >
-                {/* Video Counter with Glass Effect */}
-                <div className="absolute -top-12 right-0 px-3 py-1 rounded-full backdrop-blur-md bg-white/[0.05] border border-white/10 text-white/50 font-light text-sm tracking-widest shadow-lg">
-                  0{activeVideo}/04
+                {/* Timeline Header with Glass Effect */}
+                <div className="absolute -top-12 right-0 px-4 py-2 rounded-full backdrop-blur-md bg-white/[0.05] border border-white/10 text-white/50 font-light text-sm tracking-widest shadow-lg">
+                  Journey
                 </div>
 
-                {/* Enhanced Video Container with 3D Glass Effect */}
-                <div className="relative aspect-[4/5] backdrop-blur-md bg-white/[0.02] border border-white/20 rounded-3xl overflow-hidden shadow-2xl shadow-black/50">
+                {/* Enhanced Timeline Container with 3D Glass Effect */}
+                <div className="relative aspect-[4/5] backdrop-blur-md bg-white/[0.02] border border-white/20 rounded-3xl overflow-hidden shadow-2xl shadow-black/50 p-8">
                   {/* 3D Corner Accents with Animation */}
                   <motion.div
                     animate={{ opacity: [0.3, 0.6, 0.3] }}
@@ -251,43 +254,192 @@ export default function About() {
                     className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-white/40 rounded-br-3xl shadow-lg shadow-white/20"
                   ></motion.div>
 
-                  {/* Video Elements */}
-                  <video
-                    key={activeVideo}
-                    className="absolute inset-0 w-full h-full object-cover rounded-3xl"
-                    src={`/hero-${activeVideo}.mp4`}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
+                  {/* Animated Central Timeline Line */}
+                  <motion.div
+                    initial={{ height: 0 }}
+                    animate={{ height: "85%" }}
+                    transition={{ duration: 2, delay: 1, ease: [0.16, 1, 0.3, 1] }}
+                    className="absolute left-1/2 top-12 w-px bg-gradient-to-b from-white/60 via-white/40 to-white/20 shadow-lg shadow-white/20"
+                  />
+
+                  {/* Timeline Items */}
+                  <div className="relative h-full flex flex-col justify-between py-8">
+                    {/* 2023 - Started Coding */}
+                    <motion.div
+                      initial={{ opacity: 0, x: -50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 1.5, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                      className="relative flex items-center"
+                    >
+                      <div className="flex-1 text-right pr-6">
+                        <div className="text-white/90 text-lg font-light">Started Coding</div>
+                        <div className="text-white/50 text-sm tracking-wide">2023</div>
+                      </div>
+                      <motion.div
+                        animate={{ 
+                          scale: [1, 1.3, 1],
+                          boxShadow: ["0 0 0 rgba(255,255,255,0)", "0 0 20px rgba(255,255,255,0.3)", "0 0 0 rgba(255,255,255,0)"]
+                        }}
+                        transition={{ duration: 3, repeat: Infinity, delay: 2 }}
+                        className="w-4 h-4 bg-white rounded-full shadow-lg shadow-white/50 border-2 border-white/20 backdrop-blur-sm z-10"
+                      />
+                      <div className="flex-1 pl-6">
+                        <motion.div
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                          className="w-8 h-8 backdrop-blur-md bg-white/[0.05] border border-white/20 rounded-lg flex items-center justify-center shadow-lg"
+                        >
+                          <span className="text-white/60 text-lg">💻</span>
+                        </motion.div>
+                      </div>
+                    </motion.div>
+
+                    {/* 2024 - Bootcamp Completed */}
+                    <motion.div
+                      initial={{ opacity: 0, x: 50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                      className="relative flex items-center"
+                    >
+                      <div className="flex-1 pr-6">
+                        <motion.div
+                          animate={{ 
+                            y: [0, -5, 0],
+                            scale: [1, 1.1, 1]
+                          }}
+                          transition={{ duration: 4, repeat: Infinity, delay: 3 }}
+                          className="w-8 h-8 backdrop-blur-md bg-white/[0.05] border border-white/20 rounded-lg flex items-center justify-center shadow-lg ml-auto"
+                        >
+                          <span className="text-white/60 text-lg">🎓</span>
+                        </motion.div>
+                      </div>
+                      <motion.div
+                        animate={{ 
+                          scale: [1, 1.3, 1],
+                          boxShadow: ["0 0 0 rgba(255,255,255,0)", "0 0 20px rgba(255,255,255,0.3)", "0 0 0 rgba(255,255,255,0)"]
+                        }}
+                        transition={{ duration: 3, repeat: Infinity, delay: 2.5 }}
+                        className="w-4 h-4 bg-white rounded-full shadow-lg shadow-white/50 border-2 border-white/20 backdrop-blur-sm z-10"
+                      />
+                      <div className="flex-1 text-left pl-6">
+                        <div className="text-white/90 text-lg font-light">Bootcamp Completed</div>
+                        <div className="text-white/50 text-sm tracking-wide">2024</div>
+                      </div>
+                    </motion.div>
+
+                    {/* 2024 - Freelanced */}
+                    <motion.div
+                      initial={{ opacity: 0, x: -50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 2.5, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                      className="relative flex items-center"
+                    >
+                      <div className="flex-1 text-right pr-6">
+                        <div className="text-white/90 text-lg font-light">First Project</div>
+                        <div className="text-white/50 text-sm tracking-wide">2024</div>
+                      </div>
+                      <motion.div
+                        animate={{ 
+                          scale: [1, 1.3, 1],
+                          boxShadow: ["0 0 0 rgba(255,255,255,0)", "0 0 20px rgba(255,255,255,0.3)", "0 0 0 rgba(255,255,255,0)"]
+                        }}
+                        transition={{ duration: 3, repeat: Infinity, delay: 3 }}
+                        className="w-4 h-4 bg-white rounded-full shadow-lg shadow-white/50 border-2 border-white/20 backdrop-blur-sm z-10"
+                      />
+                      <div className="flex-1 pl-6">
+                        <motion.div
+                          animate={{ 
+                            rotateY: [0, 180, 360]
+                          }}
+                          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+                          className="w-8 h-8 backdrop-blur-md bg-white/[0.05] border border-white/20 rounded-lg flex items-center justify-center shadow-lg"
+                        >
+                          <span className="text-white/60 text-lg">💼</span>
+                        </motion.div>
+                      </div>
+                    </motion.div>
+
+                    {/* 2025 - Cybersecurity */}
+                    <motion.div
+                      initial={{ opacity: 0, x: 50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                      className="relative flex items-center"
+                    >
+                      <div className="flex-1 pr-6">
+                        <motion.div
+                          animate={{ 
+                            scale: [1, 1.2, 1],
+                            rotate: [0, 10, -10, 0]
+                          }}
+                          transition={{ duration: 5, repeat: Infinity, delay: 4.5 }}
+                          className="w-8 h-8 backdrop-blur-md bg-white/[0.05] border border-white/20 rounded-lg flex items-center justify-center shadow-lg ml-auto"
+                        >
+                          <span className="text-white/60 text-lg">🔐</span>
+                        </motion.div>
+                      </div>
+                      <motion.div
+                        animate={{ 
+                          scale: [1, 1.3, 1],
+                          boxShadow: ["0 0 0 rgba(255,255,255,0)", "0 0 20px rgba(255,255,255,0.3)", "0 0 0 rgba(255,255,255,0)"]
+                        }}
+                        transition={{ duration: 3, repeat: Infinity, delay: 3.5 }}
+                        className="w-4 h-4 bg-white rounded-full shadow-lg shadow-white/50 border-2 border-white/20 backdrop-blur-sm z-10"
+                      />
+                      <div className="flex-1 text-left pl-6">
+                        <div className="text-white/90 text-lg font-light">Exploring Security</div>
+                        <div className="text-white/50 text-sm tracking-wide">2025</div>
+                      </div>
+                    </motion.div>
+                  </div>
+
+                  {/* Animated Floating Particles */}
+                  <motion.div
+                    animate={{
+                      y: [0, -20, 0],
+                      opacity: [0.2, 0.6, 0.2]
+                    }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                    className="absolute top-16 right-12 w-1 h-1 bg-white/60 rounded-full shadow-sm shadow-white/40"
+                  />
+                  <motion.div
+                    animate={{
+                      y: [0, 15, 0],
+                      opacity: [0.1, 0.4, 0.1]
+                    }}
+                    transition={{
+                      duration: 5,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 2
+                    }}
+                    className="absolute bottom-20 left-16 w-1 h-1 bg-white/40 rounded-full shadow-sm shadow-white/30"
                   />
 
                   {/* Enhanced Hover Overlay with 3D Effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-3xl backdrop-blur-sm"></div>
                 </div>
 
-                {/* Enhanced Video Navigation Dots */}
+                {/* Timeline Navigation Indicators */}
                 <div className="flex justify-center space-x-4 mt-8">
                   {[1, 2, 3, 4].map((num) => (
-                    <motion.button
+                    <motion.div
                       key={num}
-                      onClick={() => setActiveVideo(num)}
-                      whileHover={{ scale: 1.3 }}
-                      whileTap={{ scale: 0.9 }}
-                      className={`relative w-3 h-3 rounded-full transition-all duration-500 ${activeVideo === num
-                          ? 'bg-white shadow-lg shadow-white/50 scale-125'
-                          : 'bg-white/30 hover:bg-white/60'
-                        } backdrop-blur-sm border border-white/20`}
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ delay: 1 + num * 0.2, duration: 0.5 }}
+                      className="relative w-3 h-3 rounded-full bg-white/30 backdrop-blur-sm border border-white/20 shadow-lg"
                     >
-                      {/* Animated Ring for Active Dot */}
-                      {activeVideo === num && (
-                        <motion.div
-                          className="absolute inset-0 rounded-full border-2 border-white/50"
-                          animate={{ scale: [1, 1.5, 1], opacity: [1, 0, 1] }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                        />
-                      )}
-                    </motion.button>
+                      <motion.div
+                        animate={{ scale: [1, 1.5, 1], opacity: [1, 0, 1] }}
+                        transition={{ duration: 2, repeat: Infinity, delay: num * 0.5 }}
+                        className="absolute inset-0 rounded-full border border-white/40"
+                      />
+                    </motion.div>
                   ))}
                 </div>
               </motion.div>
