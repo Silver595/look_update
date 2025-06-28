@@ -57,7 +57,7 @@ export default function About() {
   };
 
   return (
-    <section className="min-h-screen relative overflow-hidden"  id="about" style={{ marginLeft: '20px', marginRight: '20px' }}>
+    <section className="min-h-screen relative overflow-hidden" id="about" style={{ marginLeft: '20px', marginRight: '20px' }}>
       {/* Enhanced Glass Background with Blur */}
       <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/80 backdrop-blur-xl">
         <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.02] via-transparent to-white/[0.01]"></div>
@@ -73,25 +73,25 @@ export default function About() {
 
         {/* Animated Background Grid Lines with Glass Effect */}
         <div className="absolute inset-0 opacity-3 rounded-3xl overflow-hidden">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: [0, 0.1, 0] }}
             transition={{ duration: 4, repeat: Infinity }}
             className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-white/30 to-transparent"
           ></motion.div>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: [0, 0.1, 0] }}
             transition={{ duration: 4, repeat: Infinity, delay: 1 }}
             className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-white/30 to-transparent"
           ></motion.div>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: [0, 0.1, 0] }}
             transition={{ duration: 4, repeat: Infinity, delay: 2 }}
             className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"
           ></motion.div>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: [0, 0.1, 0] }}
             transition={{ duration: 4, repeat: Infinity, delay: 3 }}
@@ -142,7 +142,7 @@ export default function About() {
                 variants={itemVariants}
                 className="inline-flex items-center space-x-3 px-4 py-2 rounded-full backdrop-blur-md bg-white/[0.05] border border-white/10 shadow-lg"
               >
-                <motion.div 
+                <motion.div
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
                   className="w-2 h-2 bg-white rounded-full shadow-sm shadow-white/50"
@@ -155,7 +155,7 @@ export default function About() {
               {/* Main Heading */}
               <motion.div variants={itemVariants} className="space-y-4">
                 <div className="text-white/40 text-sm font-light tracking-widest uppercase mb-4">
-                  Creative Developer
+                  Know Me Better
                 </div>
                 <SectionHeading>About me</SectionHeading>
               </motion.div>
@@ -170,16 +170,14 @@ export default function About() {
               {/* Description Paragraphs */}
               <motion.div variants={itemVariants} className="space-y-8 max-w-xl">
                 <p className="text-white/80 text-lg font-light leading-relaxed tracking-wide">
-                  After graduating with a degree in IT, I decided to pursue my passion for programming. I enrolled in a coding bootcamp and learned full-stack web development. I also have knowledge about Networking and am familiar with cybersecurity fundamentals.
-                </p>
+                  Currently pursuing a degree in Information Technology, with a passion for understanding how websites, systems, and modern technologies come together to create impactful digital products.                </p>
 
                 <p className="text-white/70 text-lg font-light leading-relaxed tracking-wide">
-                  When I'm not coding, I'm a history enthusiast fascinated by the stories that shape our world. From ancient civilizations to modern milestones, I love exploring how the past offers timeless lessons in resilience, courage, and innovation.
+                  Completed a full-stack web development bootcamp, gaining hands-on experience in building responsive applications. Also actively exploring the worlds of networking and cybersecurity to strengthen core technical skills.
                 </p>
 
                 <p className="text-white/60 text-lg font-light leading-relaxed tracking-wide">
-                  History fuels my curiosity and inspires me to view life through a broader lens, embracing growth and learning every step of the way.
-                </p>
+                  Beyond tech, a deep interest in history fuels curiosity — from ancient civilizations to world-changing events, discovering timeless stories that offer lessons in leadership, resilience, and innovation.                </p>
               </motion.div>
 
               {/* Enhanced Skills Tags with Animated Borders */}
@@ -189,7 +187,7 @@ export default function About() {
                     key={skill}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    whileHover={{ 
+                    whileHover={{
                       scale: 1.05,
                       boxShadow: "0 0 20px rgba(255,255,255,0.2)"
                     }}
@@ -232,22 +230,22 @@ export default function About() {
                 {/* Enhanced Video Container with 3D Glass Effect */}
                 <div className="relative aspect-[4/5] backdrop-blur-md bg-white/[0.02] border border-white/20 rounded-3xl overflow-hidden shadow-2xl shadow-black/50">
                   {/* 3D Corner Accents with Animation */}
-                  <motion.div 
+                  <motion.div
                     animate={{ opacity: [0.3, 0.6, 0.3] }}
                     transition={{ duration: 3, repeat: Infinity }}
                     className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-white/40 rounded-tl-3xl shadow-lg shadow-white/20"
                   ></motion.div>
-                  <motion.div 
+                  <motion.div
                     animate={{ opacity: [0.3, 0.6, 0.3] }}
                     transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
                     className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-white/40 rounded-tr-3xl shadow-lg shadow-white/20"
                   ></motion.div>
-                  <motion.div 
+                  <motion.div
                     animate={{ opacity: [0.3, 0.6, 0.3] }}
                     transition={{ duration: 3, repeat: Infinity, delay: 1 }}
                     className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-white/40 rounded-bl-3xl shadow-lg shadow-white/20"
                   ></motion.div>
-                  <motion.div 
+                  <motion.div
                     animate={{ opacity: [0.3, 0.6, 0.3] }}
                     transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
                     className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-white/40 rounded-br-3xl shadow-lg shadow-white/20"
@@ -276,11 +274,10 @@ export default function About() {
                       onClick={() => setActiveVideo(num)}
                       whileHover={{ scale: 1.3 }}
                       whileTap={{ scale: 0.9 }}
-                      className={`relative w-3 h-3 rounded-full transition-all duration-500 ${
-                        activeVideo === num
+                      className={`relative w-3 h-3 rounded-full transition-all duration-500 ${activeVideo === num
                           ? 'bg-white shadow-lg shadow-white/50 scale-125'
                           : 'bg-white/30 hover:bg-white/60'
-                      } backdrop-blur-sm border border-white/20`}
+                        } backdrop-blur-sm border border-white/20`}
                     >
                       {/* Animated Ring for Active Dot */}
                       {activeVideo === num && (

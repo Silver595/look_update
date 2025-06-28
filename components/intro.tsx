@@ -5,35 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { BsLinkedin } from "react-icons/bs";
 import { FaGithubSquare } from "react-icons/fa";
 import { useSectionInView } from "@/lib/hooks";
-import { useActiveSectionContext } from "@/context/active-section-context";
 import ProfileCard from "@/context/ProfileCard";
-
-const videos: string[] = ["/hero-1.mp4", "/hero-2.mp4", "/hero-3.mp4", "/hero-4.mp4"];
 
 const Intro: React.FC = () => {
   const { ref } = useSectionInView("Home", 0.5);
-  const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  const [currentVideo, setCurrentVideo] = useState<number>(0);
-
-  const handlePlayAudio = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = false;
-      videoRef.current.play();
-    }
-  };
-
-  const handlePauseAudio = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = true;
-      videoRef.current.pause();
-    }
-  };
-
-  const handleVideoClick = () => {
-    setCurrentVideo((prev) => (prev + 1) % videos.length);
-  };
 
   return (
     <>
@@ -400,18 +375,18 @@ const Intro: React.FC = () => {
         className="min-h-screen flex items-center justify-center relative overflow-hidden px-6 sm:px-12 lg:px-24"
       >
         {/* Enhanced floating orb */}
-        <div className="floating-orb -top-20 -left-20" style={{animationDelay: '0s'}}></div>
-        <div className="floating-orb top-1/3 right-1/4" style={{animationDelay: '-4s'}}></div>
+        <div className="floating-orb -top-20 -left-20" style={{ animationDelay: '0s' }}></div>
+        <div className="floating-orb top-1/3 right-1/4" style={{ animationDelay: '-4s' }}></div>
 
         {/* Floating Background Elements */}
         <div className="absolute top-1/4 left-1/6 w-px h-32 line-element floating-element"></div>
-        <div className="absolute top-1/3 right-1/4 w-16 h-px line-element floating-element" style={{animationDelay: '-2s'}}></div>
-        <div className="absolute bottom-1/3 left-1/3 w-px h-24 line-element floating-element" style={{animationDelay: '-4s'}}></div>
-        <div className="absolute top-1/2 right-1/6 w-12 h-px line-element floating-element" style={{animationDelay: '-6s'}}></div>
+        <div className="absolute top-1/3 right-1/4 w-16 h-px line-element floating-element" style={{ animationDelay: '-2s' }}></div>
+        <div className="absolute bottom-1/3 left-1/3 w-px h-24 line-element floating-element" style={{ animationDelay: '-4s' }}></div>
+        <div className="absolute top-1/2 right-1/6 w-12 h-px line-element floating-element" style={{ animationDelay: '-6s' }}></div>
 
         {/* Main Content Grid with Equal Heights */}
         <div className="max-w-7xl w-full equal-height-grid gap-16 lg:gap-24">
-          
+
           {/* Enhanced Text Content */}
           <motion.div
             className="space-y-12 lg:pr-12 relative flex flex-col justify-center"
@@ -429,14 +404,14 @@ const Intro: React.FC = () => {
               >
                 <div className="flex items-center gap-4">
                   <p className="text-xs uppercase tracking-[0.3em] text-white/40 font-light">
-                    Creative Developer
+                    A DEVELOPER | DESIGNER | THINKER
                   </p>
                   <div className="flex-1 h-px enhanced-line"></div>
                 </div>
-                
+
                 <div className="text-reveal">
                   <h1 className="text-5xl sm:text-6xl lg:text-7xl text-luxury text-shadow-luxury">
-                    <motion.span 
+                    <motion.span
                       className="block text-white/25 mb-2"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -444,13 +419,13 @@ const Intro: React.FC = () => {
                     >
                       Hello, I'm
                     </motion.span>
-                    <motion.span 
+                    <motion.span
                       className="block glowing-accent text-shadow-accent"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.6, duration: 0.6 }}
                     >
-                      Akash
+                      Silver
                       <span className="typing-cursor">|</span>
                     </motion.span>
                   </h1>
@@ -465,20 +440,21 @@ const Intro: React.FC = () => {
               >
                 <div className="flex items-center gap-4">
                   <p className="text-lg sm:text-xl text-white/50 font-light">
-                    But feel free to call me{" "}
-                    <span className="gradient-text font-normal text-xl">Silver</span>
+                    SAY MY {" "}
+                    <span className="gradient-text font-normal text-xl">NAME</span>.
                   </p>
                 </div>
-                
+
                 <div className="flex items-center gap-4">
                   <div className="w-20 h-px enhanced-line"></div>
                   <div className="experience-badge px-4 py-2 rounded-full">
                     <span className="text-xs text-white/60 font-light">
-                      Full-Stack Developer
+                      LIFELONG LEARNER
                     </span>
                   </div>
                 </div>
               </motion.div>
+
 
               <motion.div
                 className="space-y-6"
@@ -487,19 +463,21 @@ const Intro: React.FC = () => {
                 transition={{ delay: 1.0, duration: 0.8 }}
               >
                 <p className="text-base sm:text-lg text-white/60 font-light leading-relaxed max-w-lg">
-                  I'm a <span className="text-white/85 font-normal">passionate full-stack developer</span> with{" "}
-                  <span className="text-white/85 font-normal">one year</span> of experience crafting 
-                  digital experiences that blend innovation with elegance.
+                  I’M A DEVELOPER WHO LOVES <span className="text-white/85 font-normal">BUILDING</span>,{" "}
+                  <span className="text-white/85 font-normal">LEARNING</span>, AND PUSHING PIXELS TO PERFECTION.<br />
+                  FROM FRONTEND POLISH TO BACKEND LOGIC — AND EVEN{" "}
+                  <span className="text-white/85 font-normal">FINDING BACKDOORS BEFORE THE BAD GUYS DO</span> — I ENJOY IT ALL.
                 </p>
-                
+
+
                 <div className="grid grid-cols-2 gap-4 pt-4">
                   <div className="experience-badge p-4 rounded-lg text-center">
                     <div className="text-2xl font-light text-white/80">12+</div>
                     <div className="text-xs text-white/50 mt-1">Projects</div>
                   </div>
                   <div className="experience-badge p-4 rounded-lg text-center">
-                    <div className="text-2xl font-light text-white/80">1+</div>
-                    <div className="text-xs text-white/50 mt-1">Year Exp</div>
+                    <div className="text-2xl font-light text-white/80">8</div>
+                    <div className="text-xs text-white/50 mt-1">BUGS HUNTED</div>
                   </div>
                 </div>
               </motion.div>
@@ -532,7 +510,7 @@ const Intro: React.FC = () => {
                 </a>
 
                 <div className="w-px h-8 bg-white/10 mx-4"></div>
-                
+
                 <div className="status-indicator px-6 py-2 rounded-full backdrop-filter backdrop-blur-sm">
                   <div className="text-xs font-light tracking-wider pl-4">
                     Available for work
@@ -558,11 +536,11 @@ const Intro: React.FC = () => {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
           >
             <ProfileCard
-              // name="Akash Purjalkar"
-              // title="Full-Stack Developer"
-              // handle="Silver595"
-              // status="Available for work"
-              // contactText="Contact Me"
+              name="SILVER"
+              title="Developer"
+              handle="Silver595"
+              status=""
+              contactText="Contact Me"
               avatarUrl="/profile-img3.png"
               iconUrl="/profile-img.png"
               grainUrl="/profile-img.png"
