@@ -76,7 +76,7 @@ function AudioButton(): JSX.Element {
 
     return (
         <div className="fixed bottom-6 right-6 z-50">
-            <audio ref={audioRef} src="/kids.mp3" preload="metadata" />
+            <audio ref={audioRef} src="/Death of Kings.mp3" preload="metadata" />
             
             {/* Premium Volume Control */}
             <div className={`absolute bottom-24 right-0 transition-all duration-700 ease-out ${
