@@ -1,10 +1,10 @@
 import React from "react";
-import { FaChrome, FaVideo, FaStore, FaLandmark } from "react-icons/fa";
+import { FaChrome, FaVideo, FaStore, FaLandmark, FaIdCard, FaIdBadge } from "react-icons/fa";
 import { LuGamepad2 } from "react-icons/lu";
 import corpcommentImg from "@/public/corpcomment.png";
 import rmtdevImg from "@/public/Editor.png";
 import wordanalyticsImg from "@/public/portscanner.png";
-
+import interviewImg from "@/public/interview.png";
 export const links = [
   {
     name: "Home",
@@ -34,20 +34,19 @@ export const links = [
 
 export const experiencesData = [
   {
+    title: "Data engineering intern Esther Data Labs",
+    location: "Solapur, IN",
+    description:
+      "Gained hands-on experience in Python programming, data visualization, SQL databases, and data security best practices during a data engineering internship.",
+    icon: React.createElement(FaIdBadge),
+    date: "2024",
+  },
+  {
     title: "College MiniProject",
     location: "Solapur, IN",
     description:
       "Developed an eCommerce website for a local business mall as part of my college work, featuring product listings, cart functionality, and a responsive design.",
     icon: React.createElement(FaStore),
-    date: "2024",
-  },
-
-  {
-    title: "Video Calling Platform",
-    location: "Solapur, IN",
-    description:
-      "Developed a real-time video calling website for college use, enabling staff and students to communicate through peer-to-peer video sessions using WebRTC and Socket.IO.",
-    icon: React.createElement(FaVideo),
     date: "2024",
   },
   {
@@ -84,6 +83,14 @@ export const projectsData = [
       "Built a keylogger for educational and cybersecurity research, demonstrating how keystroke data can be captured and analyzed to highlight potential security threats.",
     tags: ["Python", "Security", "OSINT"],
     imageUrl: corpcommentImg,
+  },
+  {
+    title:"TechMock",
+    description:
+      "Developed a real-time video calling website for college use, enabling staff and students to communicate through peer-to-peer video sessions using WebRTC and Socket.IO.",
+    tags: ["TypeScript", "Next.js", "Tailwind", "WebRTC","convex","Stream","clerk"
+    ],
+    imageUrl: interviewImg,
   },
   {
     title: "Code Editor",
